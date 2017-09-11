@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>乘法口诀</title>
+</head>
+<body>
+	<script>
+		document.write('乘法口诀表')
+		document.write('<table border=1 cellspacing=0 width=800>')
+			for(var i=1;i<=9;i++){
+				if (i%2==0) {
+					document.write('<tr style="background:red;">')
+				}else{
+					document.write('<tr style="background:green;">')
+				} 
+				for(var j = 1; j <= i; j++) {
+					document.write('<td style="text-align:center;">'+j+'X'+i+'='+(i*j)+'</td>')
+				}
+				document.write('</tr>') 
+			}
+		document.write('</table>')
+	</script>
+	<script>
+		document.write('乘法口诀表')
+		document.write('<table border=1 cellspacing=0 width=800>')
+			for(var i=1;i<=9;i++){
+				document.write('<tr>')
+				for(var j = 1; j <= i; j++) {
+					if (j%2==0) {
+					document.write('<td style="background:red; text-align:center">'+j+'X'+i+'='+(i*j)+'')
+					}else{
+					document.write('<td style="background:green;text-align:center">'+j+'X'+i+'='+(i*j)+'')
+					} 
+					document.write('</td>')
+				}
+				document.write('</tr>') 
+			}
+		document.write('</table>')
+
+		var table = '<table>';
+		table += '<td>';
+		for (var i = Things.length - 1; i >= 0; i--) {
+			Things[i]
+		}
+	</script>
+</body>
+</html>
