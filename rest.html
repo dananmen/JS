@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var arr = [1,2,3,4,5,6];
+		var result = [];
+		// push(arr)
+		// function push(arr ,...num){
+		// 	console.log(num);
+		// }
+		function jie(arr, str){
+			for (var i = 0; i < arr.length; i++) {
+				if (i<arr.length-1) {
+					result += arr[i]+str;
+				}else {
+					result += arr[i];
+				}
+			}
+			return result;
+		}
+		var str = jie(arr,'+');
+		console.log(str);
+		function ou(){
+			for (var i = 0; i <arr.length; i++) {
+				if (arr[i]%2==0) {
+					newarr[newarr.length] = arr[i];
+				}
+			}
+			return newarr;
+		}
+		var newarr = [];
+		console.log(ou(newarr));
+
+
+	</script>
+</body>
+</html>
