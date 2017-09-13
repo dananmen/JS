@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		class Student{
+			constructor(){
+				this.name = "zhangsan";
+				this.age = 18;
+				this.say = function(){
+					alert(1)
+				}
+			}
+			study(){
+				alert("学习");
+			}
+		}
+		let zhangsan = new Student();
+		zhangsan.say();
+		zhangsan.study();
+		console.log(zhangsan);
+
+		// class Iphone{
+		// 	constructor(){
+		// 		this.name = "Ihone8";
+		// 		this.sex = 5.5;
+		// 		this.color = "red";
+		// 		this.music =function(){
+		// 			alert("音乐");
+		// 		}
+		// 	}
+		// 	study(){
+		// 		alert("学习");
+		// 	}
+		// }
+
+
+
+
+
+		class Iphone{
+			constructor(name,sex,color){
+				this.name = name;
+				this.sex = sex;
+				this.color = color;
+				this.music =function(){
+					alert("音乐");
+				}
+			}
+			study(){
+				alert("学习");
+			}
+		}
+		let Iphone8 = new Iphone("Iphone",5.5,"red");
+		Iphone8.study();
+		Iphone8.music();
+		console.log(Iphone8);
+	</script>
+</body>
+</html>

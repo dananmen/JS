@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>myArray</title>
+</head>
+<body>
+	<script>
+		let arr = new myArray('a','b','c','d',1,2,7,4,5,6,7,8)
+		arr.push('x','y','z')
+		let some = arr.some(function(zi){
+			return zi == 2;
+		})
+		let every = arr.every(function(zi){
+			return typeof zi == 'number';
+		})
+		let map = arr.map(function(zi){
+			return zi*2;
+		})
+		let filter = arr.filter(function(str){
+			return typeof str == 'number';
+		})
+		function shan(arr,pos,num){
+			var newarr = [];
+			for (var i = 0; i < arr.length; i++) {
+				if (i>=pos && i<pos+num) {
+					continue;
+				}
+				newarr[newarr.length] = arr[i]
+			}
+			return newarr;
+		}
+		function jia(arr,pos,...rest){
+			var newarr = [];
+			for(var i=0; i<pos;i++){
+				newarr[newarr.length] = arr[i];
+			}
+			for (var i = 0; i < rest.length; i++) {
+				newarr[newarr.length] = rest[i];
+			}
+			for (var i = pos; i < arr.length; i++) {
+				newarr[newarr.length] = arr[i];
+			}
+			return newarr;
+		}
+		function myArray(){
+			for (var i = 0; i < arguments.length; i++) {
+				this[i] = arguments[i];
+			}
+			this.length = arguments.length;
+			
+			this.push = function(){
+				for (var i = 0; i < arguments.length; i++) {
+					this[this.length] = arguments[i];
+					this.length++;
+				}
+			}
+			this.indexOf = function(shu){
+				for (var i = 0; i < this.length; i++) {
+					if (this[i] == shu) {
+						return i;
+					}
+				}
+				return -1;
+			}
+			this.lastindexOf = function(shu){
+				for (var i = this.length-1; i < this.length; i--) {
+					if (this[i] == shu) {
+						return i;
+					}
+				}
+				return -1;
+			}
+			this.max = function(shu){
+				var shu = this[0];
+				for (var i = 0; i < this.length; i++) {
+					if (shu > this[i]) {
+						shu = this[i];
+					}
+				}
+				return shu;
+			}
+			this.some = function(fn){
+				for (var i = 0; i < this.length; i++) {
+					if (fn(this[i])) {
+						return true;
+					}
+				}
+				return false;
+			}
+			this.every = function(fn){
+				for (var i = 0; i < this.length; i++) {
+					if (!fn(this[i])) {
+						return false;
+					}
+				}
+				return ture;
+			}
+
+			this.map = function(fn){
+				var newarr = [];
+				for (var i = 0; i < this.length; i++) {
+					newarr[newarr.length] = fn(this[i]);
+				}
+				return newarr;
+			}
+			this.filter = function(fn){
+				var xinarr = [];
+				for (var i = 0; i < this.length; i++) {
+					if (fn(this[i])) {
+						xinarr[xinarr.length] = this[i];
+					}
+				}
+				return xinarr;
+			}
+			this.join = function(str){
+				var result = '';
+				for (var i = 0; i < this.length; i++) {
+					if (i<this.length-1) {
+						result += this[i] + str
+					}else {
+						result += this[i]
+					}
+				}
+				return result;
+			}
+			this.zong = function(pos,num,...rest){
+				var newarr = shan(arr,pos,num);
+				if (rest.length > 0) {
+					newarr = jia(newarr,pos,...rest);
+				}
+				return newarr;
+			}
+			this.kong = function(){
+				var newarr = new myArray();
+				for (var i = 0; i < this.length; i++) {
+					if(this[i]!=undefined){
+						newarr.push(this[i]);
+					}
+				}
+				return newarr;
+			}
+
+		}
+		let first = arr.indexOf('c');
+		let last = arr.lastindexOf(7);
+		let max = arr.max()
+		console.log(arr);
+		console.log(first);
+		console.log(last);
+		console.log(max);
+		console.log(some);
+		console.log(every);
+		console.log(map);
+		console.log(filter);
+		let join = arr.join('+');
+		console.log(join);
+		let zong = arr.zong(3,2,'e','r','r');
+		console.log(zong);
+		let kong = arr.kong();
+		console.log(kong);
+		
+
+		// let myarr = new myArray(1,2,3,4,5,6,7,8,9);
+		// function myArray(){
+		// 	for (var i = 0; i < arguments.length; i++) {
+		// 		this[i] =  arguments[i];
+		// 	}
+		// 	this.length = arguments.length;
+
+		// }
+		// console.log(myarr);
+
+	</script>
+</body>
+</html>
