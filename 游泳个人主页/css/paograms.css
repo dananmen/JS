@@ -2,7 +2,7 @@
 * @Author: msi
 * @Date:   2017-10-18 23:00:14
 * @Last Modified by:   msi
-* @Last Modified time: 2017-10-19 13:32:53
+* @Last Modified time: 2017-10-20 10:09:42
 */
 @import url('base.css');
 .slider{
@@ -51,15 +51,26 @@
 	right: 0;
 	margin-right: auto;
 	margin-left: auto;
-	width: 400px;
-	height: 80px;
+	width: 450px;
+	height: 100px;
 	
 	/* bottom: 30px; */
 
 }
 #slider3 li{
+	cursor: pointer;
 	float: left;
+	border: 3px solid #000;
+	padding: 3px;
 	margin-right: 10px;
+}
+#slider3 li:first-child{
+	border: 3px solid #fff;
+}
+#slider3 li img{
+	display: block;
+	width: 100%;
+	height: 100%;
 }
 .dao{
 	width: 100%;
@@ -68,6 +79,11 @@
 	padding: 6px 0;
 	display: flex;
 	align-items: center;
+}
+.fixed{
+	position: fixed;
+	top: 0;
+	left: 0;
 }
 .daonav{
 	width: 1140px;
@@ -134,12 +150,12 @@
  	width: 406px;
 	height: 315px;
 	border: 20px solid skyblue;
-	position: absolute;
+	position: fixed;
 	left: 50%;
 	top: 50%;
 	margin-left: -203px;
 	margin-top: -158px;
-	box-shadow: 0 0 0 1000px rgba(0, 0, 0, .3);
+	box-shadow: 0 0 0 1000px rgba(0, 0, 0, .8);
 	transform: scale(0, 0);
 	transition: .5s;
 }
@@ -155,11 +171,11 @@
 	height: 40px;
 	width: 40px;
 	border-radius: 50%;
-	background: #fff;
+	background: #ccc;
 	position: absolute;
-	right: -20px;
-	top: -20px;
-	font-size: 60px;
+	right: -500px;
+	top: -230px;
+	font-size: 30px;
 	color: black;
 	text-align: center;
 	line-height: 40px;
@@ -168,16 +184,18 @@
 	overflow: hidden;
 }
 .left,.right{
-	font-size: 30px;
+	font-size: 60px;
 	color: #fff;
 	position: absolute;
+	margin-top: -30px;
+	cursor: pointer;
 }
 .left{
-	left: -50px;
+	left: -350px;
 	top: 50%;
 }
 .right{
-	right: -50px;
+	right: -350px;
 	top: 50%;
 }
 

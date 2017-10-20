@@ -33,6 +33,35 @@
 		      <li><img src="img/6.jpg" alt=""></li>
 		    </ul>    
 		</div>
+		<script>
+		    	$(function(){
+		    		let liss=$('#slider>li');
+					let btns=$('#slider3>li')
+					let tt=setInterval(move, 3000);
+					let nows=nexts=0;
+					function move(){
+						nexts++;
+						if(nexts==liss.length){
+							nexts=0;
+						}
+						btns.eq(nexts).css({border: '3px solid #fff'})
+						liss.eq(nexts).animate({opacity:1});
+						liss.eq(nows).animate({opacity:0});
+						// liss.eq(nexts).show();
+						// liss.eq(nows).hide();
+						btns.eq(nows).css({border: '3px solid #000'})
+						nows=nexts;
+					}
+					btns.each(function(index) {
+						btns.on('click',function(){
+							liss.eq(index).animate({opacity:1});
+							liss.eq(nows).animate({opacity:0});
+							btns.eq(nows).css({border: '3px solid #000'})
+							btns.eq(index).css({border: '3px solid #fff'})
+						})
+					});
+		    	})
+		    </script>   
 		<div class="dabox">
 			<div class="dao">
 				<div class="daonav">
@@ -48,7 +77,20 @@
 				</div>
 			</div>
 		</div>
-		
+		<script>
+			$(document).ready(function() {
+				 let navoffeset=$(".dao").offset().top;
+				 $(window).scroll(function(){
+					let scrollpos=$(window).scrollTop(); 
+					if(scrollpos >=navoffeset){
+						$(".dao").addClass("fixed");
+					}else{
+						$(".dao").removeClass("fixed");
+					}
+				 });
+			 
+			});
+		</script>
 	</div>
 	<!-- 中间的 -->
 	<div class="dabox1">
@@ -86,8 +128,8 @@
 	<div class="zhe">
 		<img src="img/g1.jpg" alt="">
 		<div class="guan">X</div>
-		<div class="left"><</div>
-		<div class="right">></div>
+		<div class="left">〈</div>
+		<div class="right">〉</div>
 	</div>
 		<script>
 			$(function(){

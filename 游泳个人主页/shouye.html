@@ -36,12 +36,12 @@
 		    	$(function(){
 		    		let liss=$('#slider>li');
 					let btns=$('#slider3>li')
-					let tt=setInterval(move, 1000);
+					let tt=setInterval(move, 3000);
 					let nows=nexts=0;
 					function move(){
-						next++;
-						if(next==liss.length){
-							next=0;
+						nexts++;
+						if(nexts==liss.length){
+							nexts=0;
 						}
 						btns.eq(nexts).css({border: '3px solid #fff'})
 						liss.eq(nexts).animate({opacity:1});
@@ -51,6 +51,14 @@
 						btns.eq(nows).css({border: '3px solid #000'})
 						nows=nexts;
 					}
+					btns.each(function(index) {
+						btns.on('click',function(){
+							liss.eq(index).animate({opacity:1});
+							liss.eq(nows).animate({opacity:0});
+							btns.eq(nows).css({border: '3px solid #000'})
+							btns.eq(index).css({border: '3px solid #fff'})
+						})
+					});
 		    	})
 		    </script>   
 		</div>
@@ -69,16 +77,29 @@
 				</div>
 			</div>
 		</div>
-		
+		<script>
+			$(document).ready(function() {
+				 let navoffeset=$(".dao").offset().top;
+				 $(window).scroll(function(){
+					let scrollpos=$(window).scrollTop(); 
+					if(scrollpos >=navoffeset){
+						$(".dao").addClass("fixed");
+					}else{
+						$(".dao").removeClass("fixed");
+					}
+				 });
+			 
+			});
+		</script>
 	</div>
 	<div class="ren">
 			<h3>Swim lessons for adult and children</h3>
 			<ul class="renren">
 				<li>
-						<img src="img/p1.jpg" class="img-responsive" alt="/">
-						<h4>swim lessons for adults</h4>
-						<p>Consec tetuer adipicing it. Praesebul lorem ipsum natoque penatibus et gnis dent monteiculu.Lorem ipsum dolor sit amet, concr adipi scing.esent </p>
-						<a href="#" class="botton">more info</a>
+					<img src="img/p1.jpg" class="img-responsive" alt="/">
+					<h4>swim lessons for adults</h4>
+					<p>Consec tetuer adipicing it. Praesebul lorem ipsum natoque penatibus et gnis dent monteiculu.Lorem ipsum dolor sit amet, concr adipi scing.esent </p>
+					<a href="#" class="botton">more info</a>
 				</li>
 				<li>
 					<img src="img/p1.jpg" class="img-responsive" alt="/">

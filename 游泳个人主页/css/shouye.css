@@ -79,6 +79,11 @@
 	display: flex;
 	align-items: center;
 }
+.fixed{
+	position: fixed;
+	top: 0;
+	left: 0;
+}
 .daonav{
 	width: 1140px;
 	height: 80px;
